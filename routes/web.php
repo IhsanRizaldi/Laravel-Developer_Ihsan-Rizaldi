@@ -7,9 +7,9 @@ use App\Http\Controllers\PengeluaranController;
 use Illuminate\Support\Facades\Route;
 
 //Auth
-Route::get('/', [AuthController::class,'loginView'])->name('loginView');
-Route::post('/', [AuthController::class,'login'])->name('login');
-Route::get('/logout', [AuthController::class,'logout'])->name('logout');
+Route::get('/', [AuthController::class,'loginView'])->name('loginView')->middleware('guest');
+Route::post('/', [AuthController::class,'login'])->name('login')->middleware('guest');
+Route::get('/logout', [AuthController::class,'logout'])->name('logout')->middleware('auth');
 
 //Dashboard
 Route::get('/home', [DashboardController::class,'index'])->name('home')->middleware('auth');
