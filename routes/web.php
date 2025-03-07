@@ -23,7 +23,7 @@ Route::prefix('pendapatan')->group(function () {
     Route::get('/edit/{id}', [PendapatanController::class,'edit'])->name('pendapatan.edit');
     Route::post('/update/{id}', [PendapatanController::class,'update'])->name('pendapatan.update');
     Route::get('/destroy/{id}', [PendapatanController::class,'destroy'])->name('pendapatan.destroy');
-});
+})->middleware('auth');
 
 //Pengeluaran
 Route::prefix('pengeluaran')->group(function () {
@@ -33,4 +33,4 @@ Route::prefix('pengeluaran')->group(function () {
     Route::get('/edit/{id}', [PengeluaranController::class,'edit'])->name('pengeluaran.edit');
     Route::post('/update/{id}', [PengeluaranController::class,'update'])->name('pengeluaran.update');
     Route::get('/destroy/{id}', [PengeluaranController::class,'destroy'])->name('pengeluaran.destroy');
-});
+})->middleware('auth');
